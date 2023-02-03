@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+    <!-- 组件需要通过props来传递值 -->
+   <div id="app">
+    <hz v-for="item in items" v-bind:java="item"></hz>
+   </div>  
+    <script>
+       Vue.component(
+        'hz',{
+            props:['java'],
+           template:'<p>{{java}}</p>'
+        });
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                items:['java','react','vue']
+            }
+        });
+    </script>
+</body>
+</html>

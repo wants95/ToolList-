@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一个vue</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <!-- 导入vue.js -->
+</head>
+<body>
+<div id="A">
+    <div >{{message}}</div>
+    <p v-text="message+'!'"></p>
+    <div v-html="content"></div><!--与text区别：可以解析内容，即有HTML标签可以解析 -->
+</div>
+    <span class="B"  v-bind:title="message">鼠标悬停几秒查看动态绑定的提示信息</span>
+<!-- v-开头表示指令 -->
+    <script>
+        var vm=new Vue({
+            // el:"#A",
+            // 数据
+            data:{
+                message:"Hello Vue!",
+                content:'<a href="http:/www.baidu.com">百度</a>'
+            }
+        });
+        vm.$mount("#A")//可替代el:
+        var vm=new Vue({
+            el:".B",
+            // 数据
+            data:{
+                message:"Hello Vue!"
+            }
+        });
+        //data函数式写法:
+        // data:function(){ return{name:'sda',message:'hell'} }
+    </script>
+</body>
+</html>

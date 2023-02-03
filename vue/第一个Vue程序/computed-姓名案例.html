@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue/vue.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script> -->
+</head>
+<body>
+    <div class="app">
+        姓：<input type="text" name="" id="" v-model="First"><br>
+        名：<input type="text" name="" id="" v-model="Next"><br>
+        姓名：<span>{{All}}</span>
+    </div>
+    <script>
+        new Vue({
+            el:".app",
+            data:{
+                First:'',
+                Next:''
+                
+            },
+            // 完整写法
+          computed:{
+            // All:{
+            //     get(){
+            //         return this.First+'-'+this.Next
+            //     },
+            //     set(value){
+            //        const arr=value.split('-')
+            //         this.First=arr[0]
+            //         this.Next=arr[1]
+                    
+
+            //     }
+            // }
+
+             // 如果只读取不修改，则可以采用下面的简写方式
+                All(){
+                    return this.First+'-'+this.Next
+                }
+          }
+       
+        })
+    </script>
+</body>
+</html>

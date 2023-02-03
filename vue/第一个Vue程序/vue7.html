@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="A">
+        <li v-for="(item,index) in items">
+         {{item.message}} -{{index}}
+         <!-- 对象的message，所以是item而不是items -->
+        </li>
+    </div>
+
+    <script>
+  var vm=new Vue({
+    el:"#A",
+    data:{
+        items:[
+            
+                {message:'hz学前端'},//对象
+                {message:'hz学java'},
+            // 添加对象.push({});
+        ]
+    }
+  });      
+    </script>
+</body>
+</html>

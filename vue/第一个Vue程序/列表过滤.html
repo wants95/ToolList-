@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表过滤</title>
+    <script src="/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="" id="" v-model="keyword" placeholder="请输入内容">
+        <li v-for="p in fliPersons" :key="p.id">{{p.name}}</li>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                keyword:'',
+                persons:[
+                {id:'001',name:'周杰伦',age:29},
+                {id:'002',name:'马冬梅',age:21},
+                {id:'003',name:'薛之谦',age:39},
+                {id:'004',name:'周华健',age:23}]
+                // fliPersons:[]
+            },
+            
+            // watch:{
+            //     keyword:{
+            //     immediate:true,
+            //     handler(newValue){
+            //         this.fliPersons=this.persons.filter((p)=>{return p.name.indexOf(newValue)!==-1})
+            //     }
+            // }}
+            computed:{
+                fliPersons(){
+                    return this.persons.filter((p)=>
+                    {
+                        return p.name.indexOf(this.keyword)!==-1})
+                }
+            }
+        })
+    </script>
+</body>
+</html>

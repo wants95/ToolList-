@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双向绑定事件</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+
+</head>
+<body>
+    <div  id="app" >
+        <input type="text"v-model="message">
+        {{message}}<br>
+        <textarea v-model="hz"></textarea>
+        {{hz}}
+        <br>
+        <select v-model="sty">
+            <option value=" " disabled>--请选择--</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        已选中的是:{{sty}}
+        
+    </div>
+
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data: {
+                message:"hz学vue",
+                hz:'',
+                sty: ''
+            },
+            //方法必须定义在Vue实例的methods对象中
+            methods:{
+                SayHi: function(){
+                    alert(this.message);
+                }
+            }
+            
+            
+        });
+    </script>
+</body>
+</html>

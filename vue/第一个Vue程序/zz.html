@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<style>
+    .right{
+        color: red;
+    }
+    .err{
+        color: green;
+    }
+    
+</style>
+<body>
+<input type="text">
+<span>
+
+</span>
+    <script>
+    //     let zz=/java/;
+    //     let sh="前端";
+    //    console.log(zz.test(sh))
+    let input=document.querySelector('input')
+    let span=input.nextElementSibling
+    let reg=/^[0-9a-zA-Z-_]{6,12}$/
+    input.addEventListener('blur',function(){
+        if (reg.test(input.value))
+    {
+        span.className='right'
+        span.innerHTML='输入正确'
+    }
+    else{
+        span.className='err'
+        span.innerHTML='请输入正确的用户名'
+    }
+    })
+    // if (reg.test(input.value))
+    // {
+    //     span.className='right'
+    //     span.innerHTML='输入正确'
+    // }
+    // else{
+    //     span.className='err'
+    //     span.innerHTML='请输入正确的用户名'
+    // }
+
+    </script>
+</body>
+</html>

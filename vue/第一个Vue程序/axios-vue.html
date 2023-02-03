@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="get">
+    <input type="button" value="get请求" class="get" @click="get"><br>
+    <i>{{joke}}</i>
+</div>
+    <script>
+       var vm= new Vue({
+        el:"#get"
+        ,
+        data:{joke:"一个好笑的笑话"}
+        ,
+        methods:{
+            get:function(){
+                console.log(this.joke);
+                var that=this;//将this以另一种方式储存
+                axios.get("https://autumnfish.cn/api/joke").then
+                (
+                    function(response){
+                        console.log(response.data);
+                        console.log(that);
+                        //console.log(this.joke),这里的this会显示undefined
+                        that.joke=response.data;
+                    }
+                )
+            }
+        }
+       });
+        
+    </script>
+</body>
+</html>

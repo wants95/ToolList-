@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <style>
+        .app{ width: 200px;
+            height: 300px;}
+        .a1{
+           
+            background-color: aliceblue;
+        }
+        .a2{
+           border: 1px solid red;
+            /* background-color: aqua; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="app" :class="obj" :style="styleObj">
+        class
+    </div>
+    <script>
+        new Vue({
+            el:".app",
+            data:{
+                cl:'a1',//字符串式,适用于样式的类名不确定，需要动态指定
+                arr:['a1','a2'],//数组式，适用于要绑定的样式个数不确定，名字也不确定
+                obj:{
+                    'a1':false,
+                    'a2':true
+                },
+                // 对象式，要绑定的样式个数确定，名字也确定，但要动态决定用不用
+                styleObj:{
+                    fontSize:'40px'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

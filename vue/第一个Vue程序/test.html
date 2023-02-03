@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <button @click="get">
+            get
+        </button>
+        <div>
+            <span>id:{{id}}</span>
+            <span>title:{{title}}</span>
+            <span>username:{{userName}}</span>
+        </div>
+        
+    </div>
+    <script>
+        new Vue(
+            {
+                el:".app",
+                data:{
+                    id:" ",
+                    title:" ",
+                    userName:" ",
+                    lists:" ",
+                    index: 0
+            
+                },
+                methods:{
+                    get:function(){
+                        var that=this;
+                        axios.get("http://localhost:3010/api/homeAdvertisement").then(
+                            (response) =>{
+                            //    that.lists=response.data.result.list;
+                            //     that.id=that.lists[that.index].id
+                            //     // console.log(that.id)
+                            //     that.title=that.lists[that.index].title
+                            //     that.userName=that.lists[that.index].userName
+                                
+                            //    for (let list of that.lists){
+                            //         that.id=list.id;
+                            //         console.log(that.id)
+                            //    }
+                            //    console.log(that.lists)
+                               that.index++;
+                            console.log(response)
+                        },
+                            (err)=>{
+                                console.log(err);
+                            }
+                        )
+                    }
+                }
+
+            }
+        )
+    </script>
+</body>
+</html>

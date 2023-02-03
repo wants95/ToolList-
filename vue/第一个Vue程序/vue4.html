@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定事件</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+    <button  v-on:click="SayHi">Click Me</button>
+    <button  v-on:dblclick="SayHi">Click Me</button>
+    <!-- dbl双击事件 -->
+    <p @click="changedDream">{{Dream}}</p>
+    </div>
+    <!-- v-on:click可以等价为@click -->
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data: {
+                message:"hz学vue",
+                Dream:'前端开发'
+            },
+            //方法必须定义在Vue实例的methods对象中
+            methods:{
+                SayHi: function(){
+                    alert(this.message);
+                },
+                changedDream: function(){
+                    this.Dream+='好难啊';
+                    console.log(this.Dream);
+                }
+            }
+            
+            
+        });
+    </script>
+</body>
+</html>

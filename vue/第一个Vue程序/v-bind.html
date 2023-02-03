@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<style>
+    .active{
+        box-shadow: 2px 2px 2px gold;
+    }
+</style>
+<body>
+    <div id="app">
+<img v-bind:src="imgSrc" alt="" :title="isTile" >
+<img v-bind:src="imgSrc" alt="" :title="isTile" :class="{active:isActive}" @click="changeActive" >
+<!-- class="active:isActive" 如果isActive的值为true则类名active生效，反之则不生效 -->
+   <!-- v-bind:可以简写为 :，作用：使其成为js表达式形式 -->
+   <!-- .toUpperCase()方法使其成为大写 -->
+</div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                imgSrc:"imag/github.png",
+                isActive:true,
+                isTile:"学Vue",
+
+            }
+            ,
+            methods:{
+                changeActive:function(){
+                    this.isActive=!this.isActive;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

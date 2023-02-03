@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style>
+    div{
+        position: relative;
+        
+    }
+    button{
+        position: absolute;
+        left: 65px;
+        top: 200px;
+    }
+</style>
+</head>
+<body>
+    <div id="app">
+        <img src="imag/github.png" v-show="isShow" alt="">
+        <button @click="changeShow">切换按钮</button>
+    </div>
+    <script>
+        var vm=new Vue(
+            {
+                el:'#app',
+                data:{
+                    isShow:true
+                },
+                methods:{
+                    changeShow:function(){
+                        this.isShow=!this.isShow;
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

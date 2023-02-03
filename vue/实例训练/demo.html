@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+
+    }
+    #app{
+        width: 480px;
+        height: 60px;
+        margin: 200px auto;
+    }
+    .A{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        box-shadow: 4px 4px 4px #adadad;
+        overflow: hidden;
+
+    }
+    button{
+        width: 200px;
+        height: 60px;
+        font-size: 40px;
+        background-color:aquamarine;
+        border: 0;
+
+
+    }
+    span{
+        flex: 1;
+        background-color:bisque;
+        text-align: center;
+        height: 100%;
+        font-size: 40px;
+    }
+</style>
+</head>
+<body>
+    <div id="app">
+        <div class="A">
+    <button @click="addNum">+</button>
+    <span>{{num}}</span>
+    <button @click="SubNum">-</button>
+        </div>
+</div>
+<script>
+var vm=new Vue(
+    {
+        el:'#app',
+        data:{
+            num:0
+        },
+    methods:{
+        addNum:function(){
+            if(this.num>=10)
+            alert("亲，已经到顶了！");
+            else this.num++;
+        },
+        SubNum:function(){
+            if(this.num<=0)
+            alert("亲，已经到底了！");
+            else this.num--;
+        }
+    }
+    }
+    
+);
+</script>
+</body>
+</html>

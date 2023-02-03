@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;                                                                                                                                                                                                                     
+            
+        }
+       #app{
+        display:flex ;
+        flex-direction: row;
+        justify-content: center;
+        /* vertical-align: middle; */
+        align-items: center;
+        margin-top: 250px;
+       }
+       
+       img{
+        object-fit: cover;
+       }
+       a img{
+        opacity: 0.2;
+        width: 50%;
+        margin:20px;
+       }
+    </style>
+</head>
+<body>
+    <div id="app">
+       
+        <a href="#" class="left">
+            <img src="imag/prev.png" alt="" @click="sub_index">
+        </a>
+        <img :src="imgUrl[index]" alt="">
+        <a href="#" class="right">
+            <img src="imag/next.png" alt="" @click="add_index">
+        </a>
+    </div>
+    <script>
+        var app=new Vue(
+            {
+                el:"#app",
+                data:{
+                    imgUrl:['/爬虫爬取素材/imag/宾利性感女车摸高清壁纸.jpg','/爬虫爬取素材/imag/性感唯美的动漫美少女壁纸下载.jpg','/爬虫爬取素材/imag/性感的动漫美女桌面壁纸.jpg','/爬虫爬取素材/imag/超级跑车性感车模壁纸下载.jpg','/爬虫爬取素材/imag/马路上的性感车模和跑车电脑壁纸下载.jpg'],
+                    index:0
+                }
+                ,
+                methods:{
+                    add_index:function(){
+                        this.index++;
+                        if (this.index>=5)
+                        {
+                            this.index=0
+                        }
+
+                    },
+                    sub_index:function(){
+                        this.index--;
+                        if (this.index<0)
+                        {
+                            this.index=5;
+                        }
+                    }
+                }
+            }
+        )
+    </script>
+</body>
+</html>

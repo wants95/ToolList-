@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<body>
+    <div  class="app"> 
+        <input type="text" v-model="message" @keyup.enter="getM(ms)">
+        <p>{{ message }}</p>
+        <input type="text" name="" id="" @keyup="getk">
+        <a href="https://www.bilibili.com/video/BV1Zy4y1K7SH/?spm_id_from=333.337.search-card.all.click&vd_source=1ad3326237cb85dea109172aae9f4dd5" @click="showInfo">点击</a>
+    </div>
+
+    <!-- 
+        回车 => enter
+        删除 => delete (捕获“删除”和“退格”键)
+        退出 => esc
+        空格 => space
+        换行 => tab (特殊，必须配合keydown去使用)
+        上 => up
+        下 => down
+        左 => left
+        右 => right
+     -->
+    <script>
+        new Vue({
+            el:".app",
+            data:{
+                message: 'vue',
+                ms:'fg'
+            },
+            methods:{
+                getM:function(ms){
+                    this.message=ms
+                },
+                getk(event){
+                    console.log(event.key,event.keyCode)
+                },
+                showInfo(e){
+                    e.preventDefault()
+                    //或者在@click后面加个.prevent
+                    alert("Hello World!")
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

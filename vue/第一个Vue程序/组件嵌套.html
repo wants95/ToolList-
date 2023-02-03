@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div class="app">
+       <!-- <app></app> -->
+        <hr>
+        <!-- <hello></hello> -->
+    </div>
+    <script>
+        //创建组件
+        const hello={
+        data() {
+            return {
+                msg:'你好'
+            }
+        },
+        
+        template:`<div>{{msg}}</div>`
+    }
+        const school=Vue.extend({
+            data() {
+                return {
+                    schoolName: 'nchu',
+                    address:'696'
+                }
+            },
+            
+            methods: {
+            showSchool(){
+                alert('nchu')
+            }   
+            },
+            template:`<div>
+            <h1>学校名称：{{schoolName}}</h1>
+            <h1>学校地址：{{address}}</h1>
+            <button @click="showSchool">点击提示学校名</button>
+            <hello></hello>
+            </div>` ,
+            components:{hello} //组件嵌套
+
+        })
+        
+     const app={
+        template:`<div>
+            <school></school>
+        </div>`,
+        components:{school}
+     }
+
+      new Vue({
+        el:'.app',
+        components:{app},
+        template:`<app></app>`
+       
+      })
+     
+    </script>
+</body>
+</html>
